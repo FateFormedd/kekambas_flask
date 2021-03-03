@@ -27,9 +27,6 @@ class Post(db.Model):
         self.title = title
         self.content = content
         self.user_id = user_id
-<<<<<<< HEAD
-=======
 
     def do_something(self):
         return self.title
->>>>>>> ffafec51b334d84a6c63a948a0f91091a548f8f8
