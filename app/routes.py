@@ -33,5 +33,4 @@ def createpost():
         post_title = post.title.data
         content = post.content.data
         print(post_title, content)
-    return render_template('create_post.html', title=title, post=post)
-
+    return render_template('create_post.html', post=post, title=title)

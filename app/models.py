@@ -8,12 +8,13 @@ class User(db.Model):
     username = db.Column(db.String(150), nullable=False, unique=True)
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(256), nullable=False)
-    post = db.relationship('Post', backref='author', lazy=True)
+    posts = db.relationship('Post', backref='author', lazy=True)
 
     def __init__(self, username, email, password):
-        self.username= username
+        self.username = username
         self.email = email
         self.password = generate_password_hash(password)
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -26,3 +27,9 @@ class Post(db.Model):
         self.title = title
         self.content = content
         self.user_id = user_id
+<<<<<<< HEAD
+=======
+
+    def do_something(self):
+        return self.title
+>>>>>>> ffafec51b334d84a6c63a948a0f91091a548f8f8
