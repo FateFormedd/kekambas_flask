@@ -147,6 +147,11 @@ def post_update(post_id):
 @login_required
 def post_delete(post_id):
     post = Post.query.get_or_404(post_id)
+
+    if post.author.id != current_user.id:
+        flash("You cannot delete another users post!", 'danger')
+        return redirect(url_for('myposts'))
+
     db.session.delete(post)
     db.session.commit()
     flash("This post has been deleted", 'info')
